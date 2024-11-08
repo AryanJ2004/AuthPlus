@@ -15,9 +15,6 @@ Live Project Link: [Link](http://localhost:5173/login)
 
 - **CRUD Operations for User Data**:  
   - Users can update their name and other profile data after logging in.
-  
-- **Admin Panel**:  
-  - Admins can manage users and access user data.
 
 ## Tech Stack
 
