@@ -10,9 +10,9 @@ const app = express();
 
 // Customize CORS to allow specific origins
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://your-frontend-domain.com', 'https://auth-plus.vercel.app'], // Specify allowed origins
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
-  credentials: true, // Allow credentials (e.g., cookies, authorization headers)
+  origin: ['http://localhost:5173', 'https://authplusapp.vercel.app/'], 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+  credentials: true,
 }));
 
 app.use(express.json());
