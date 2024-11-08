@@ -8,18 +8,17 @@ dotenv.config();
 
 const app = express();
 
-// Configure CORS to allow specific origins
-const allowedOrigins = ['http://localhost:3000', 'https://your-frontend-site.com'];
+// Define allowed origins
+const allowedOrigins = ['http://localhost:5173', 'https://auth-plus.vercel.app'];
 app.use(cors({
   origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin || allowedOrigins.includes(origin)) {
+    if (allowedOrigins.includes(origin) || !origin) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
     }
   },
-  credentials: true // if you need to allow cookies or authorization headers
+  credentials: true, // Allow cookies and tokens to be sent
 }));
 
 app.use(express.json());
