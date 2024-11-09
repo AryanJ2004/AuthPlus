@@ -88,16 +88,16 @@ The backend will be available at http://localhost:5000.
 
 API Endpoints
 User Authentication
-POST /api/users/register:
+POST /register:
 Registers a new user. Sends an OTP to the user's email for verification.
 
-POST /api/users/login:
+POST /login:
 Logs in the user after successful email verification.
 
-POST /api/users/verify:
+POST /verify:
 Verifies the OTP sent to the user's email during registration.
 
-POST /api/users/update:
+POST /update:
 Updates user profile data (e.g., name). Requires email verification via OTP.
 
 Middleware for Protected Routes
