@@ -1,16 +1,36 @@
 {
- "version": 2,
- "builds": [
-  {
-   "src": "server.js",
-   "use": "@vercel/node",
-   "config": { "includeFiles": ["dist/**"] }
-  }
- ],
- "routes": [
-  {
-   "src": "/(.*)",
-   "dest": "server.js"
-  }
- ]
+  "version": 2,
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node",
+      "config": { "includeFiles": ["dist/**"] }
+    },
+    {
+      "src": "dist/index.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/login",
+      "dest": "server.js"
+    },
+    {
+      "src": "/register",
+      "dest": "server.js"
+    },
+    {
+      "src": "/profile",
+      "dest": "server.js"
+    },
+    {
+      "src": "/me",
+      "dest": "server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dist/index.html"
+    }
+  ]
 }
