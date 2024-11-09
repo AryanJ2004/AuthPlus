@@ -1,7 +1,7 @@
 # AUTH+
 
 **AUTH+** is a secure authentication system built with modern web technologies that allows users to register, log in, and update their profile with email verification via OTP (One-Time Password).<br>
-Live Project Link: [Link](http://localhost:5173/login)
+Live Project Link: [Link](https://authplusapp.vercel.app)
 
 ## Features
 
