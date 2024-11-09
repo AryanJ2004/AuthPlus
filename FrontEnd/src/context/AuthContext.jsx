@@ -27,7 +27,7 @@ const [userOtp, setUserOtp] = useState("");
 
   const fetchUser = async () => {
   try {
-    const response = await axios.get('https://auth-plus.vercel.app/api/users/me');
+    const response = await axios.get('https://auth-plus.vercel.app/me');
     setUser(response.data);
     setIsAuthenticated(true);
   } catch (error) {
@@ -39,7 +39,7 @@ const [userOtp, setUserOtp] = useState("");
 
   const register = async (name, email, password) => {
     try {
-      await axios.post('https://auth-plus.vercel.app/api/users/register', { name, email, password })
+      await axios.post('https://auth-plus.vercel.app/register', { name, email, password })
       return { success: true, message: 'Registration successful. Please check your email for OTP.' }
     } catch (error) {
       throw new Error(error.response?.data?.message || 'An error occurred during registration')
@@ -48,7 +48,7 @@ const [userOtp, setUserOtp] = useState("");
 
   const verifyOTP = async (email, otp) => {
     try {
-      const response = await fetch("https://auth-plus.vercel.app/api/users/verify-otp", {
+      const response = await fetch("https://auth-plus.vercel.app/verify-otp", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -74,7 +74,7 @@ const [userOtp, setUserOtp] = useState("");
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('https://auth-plus.vercel.app/api/users/login', { email, password })
+      const response = await axios.post('https://auth-plus.vercel.app/login', { email, password })
       localStorage.setItem('token', response.data.token)
       axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`
       await fetchUser()
@@ -89,7 +89,7 @@ const [userOtp, setUserOtp] = useState("");
 
   const updateProfile = async (userData) => {
     try {
-      const response = await axios.put('https://auth-plus.vercel.app/api/users/profile', userData)
+      const response = await axios.put('https://auth-plus.vercel.app/profile', userData)
       return { success: true, message: response.data.message }
     } catch (error) {
       throw new Error(error.response?.data?.message || 'An error occurred while updating profile')
@@ -98,7 +98,7 @@ const [userOtp, setUserOtp] = useState("");
 
   const verifyProfileUpdateOTP = async (otp) => {
     try {
-      const response = await axios.post('https://auth-plus.vercel.app/api/users/verify-profile-update', { otp })
+      const response = await axios.post('https://auth-plus.vercel.app/verify-profile-update', { otp })
       setUser(response.data)
       return { success: true, message: 'Profile updated successfully.' }
     } catch (error) {
@@ -115,7 +115,7 @@ const [userOtp, setUserOtp] = useState("");
 
   const deleteAccount = async () => {
     try {
-      await axios.delete('https://auth-plus.vercel.app/api/users/delete')
+      await axios.delete('https://auth-plus.vercel.app/delete')
       logout()
     } catch (error) {
       throw new Error(error.response?.data?.message || 'An error occurred while deleting the account')
